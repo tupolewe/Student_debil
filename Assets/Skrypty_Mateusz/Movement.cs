@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
     public bool isMoving;
     public float moveSpeed;
     public Rigidbody2D rb;
 
     public bool inBattle = false;
 
-    Vector2 movement;
+    public Vector2 movement; // Make this public so other scripts can access it if needed
+
     // Update is called once per frame
     void Update()
     {
         PlayerMovement();
     }
 
-
     void PlayerMovement()
     {
         if (!inBattle)
         {
+            // Get input for movement
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
 
-            if (movement.x > 0 || movement.y > 0 || movement.x < 0 || movement.y < 0)
+            // Set isMoving based on movement input
+            if (movement != Vector2.zero)
             {
                 isMoving = true;
             }
@@ -35,11 +36,11 @@ public class Movement : MonoBehaviour
                 isMoving = false;
             }
         }
-
     }
 
     private void FixedUpdate()
     {
+        // Apply movement to the Rigidbody2D
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
