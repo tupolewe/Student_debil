@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Movement : MonoBehaviour
 {
 
     public bool isMoving;
@@ -15,11 +15,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        PlayerMovement();
     }
 
 
-    void Movement()
+    void PlayerMovement()
     {
         if (!inBattle)
         {
