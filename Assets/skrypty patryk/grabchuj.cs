@@ -62,7 +62,7 @@ public class grabchuj : MonoBehaviour
         isGrabbed = false;
         currentlyGrabbedObject = null;
 
-        // Check for snap behavior
+        // After dropping, check for snapping
         CheckForSnap();
     }
 
