@@ -5,13 +5,15 @@ using UnityEngine;
 public class grab : MonoBehaviour
 {
     public float followDistance = 1f; // Distance to keep from the player
-    private bool isGrabbed = false;
-    private Transform playerTransform;
-    private Movement playerMovement; // Reference to Movement script
+    public bool isGrabbed = false;
+    public Transform playerTransform;
+    public Movement playerMovement; // Reference to Movement script
 
-    private static grab currentlyGrabbedObject = null;
+    public static grab currentlyGrabbedObject = null;
 
-    private Collider2D pickupCollider; // Collider to detect the pickup range
+    public bool playerInRange;
+
+    public Collider2D pickupCollider; // Collider to detect the pickup range
 
     void Start()
     {
@@ -21,25 +23,83 @@ public class grab : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the player entered the trigger
+         
+        
+            // Check if the player entered the trigger
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("jest player");
+                playerTransform = other.transform;
+                playerMovement = playerTransform.GetComponent<Movement>(); // Get Movement script attached to the player
+                playerInRange = true;
+                
+            }
+        
+       
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+
         if (other.CompareTag("Player"))
         {
-            playerTransform = other.transform;
-            playerMovement = playerTransform.GetComponent<Movement>(); // Get Movement script attached to the player
+            Debug.Log("jest player");
+            playerTransform = null;
+            playerMovement = null;
+            playerInRange = false;
+            
         }
+
+        
+       
     }
 
     void Update()
     {
-        if (playerTransform != null && Input.GetKeyDown(KeyCode.G))
+        Grabbing();
+    }
+
+    public void Grab()
+    {
+        isGrabbed = true;
+        currentlyGrabbedObject = this;
+    }
+
+    public void Drop()
+    {
+        isGrabbed = false;
+        currentlyGrabbedObject = null;
+    }
+
+    public void FollowPlayer()
+    {
+        Vector2 targetPosition = (Vector2)playerTransform.position - playerMovement.movement.normalized * followDistance;
+        transform.position = Vector2.Lerp(transform.position, targetPosition, playerMovement.moveSpeed * Time.deltaTime);
+    }
+
+    // Check if the player is within range of the object to pick it up
+    public bool IsPlayerInRange()
+    {
+        // Check if the player is within the pickup collider's bounds
+        return pickupCollider.bounds.Contains(playerTransform.position);
+    }
+
+    public void Grabbing()
+    {
+        if (playerInRange && Input.GetKeyDown(KeyCode.P))
         {
-            if (!isGrabbed && currentlyGrabbedObject == null && IsPlayerInRange())
+            Debug.Log("jest player2");
+
+            if (!isGrabbed && currentlyGrabbedObject == null && playerInRange)
             {
                 Grab(); // If object is not grabbed and player is in range, grab it
+                Debug.Log("jest player3");
             }
             else if (isGrabbed)
             {
+
                 Drop(); // If object is grabbed, drop it
+                Debug.Log("jest player4");
             }
         }
 
@@ -47,30 +107,5 @@ public class grab : MonoBehaviour
         {
             FollowPlayer();
         }
-    }
-
-    void Grab()
-    {
-        isGrabbed = true;
-        currentlyGrabbedObject = this;
-    }
-
-    void Drop()
-    {
-        isGrabbed = false;
-        currentlyGrabbedObject = null;
-    }
-
-    void FollowPlayer()
-    {
-        Vector2 targetPosition = (Vector2)playerTransform.position - playerMovement.movement.normalized * followDistance;
-        transform.position = Vector2.Lerp(transform.position, targetPosition, playerMovement.moveSpeed * Time.deltaTime);
-    }
-
-    // Check if the player is within range of the object to pick it up
-    bool IsPlayerInRange()
-    {
-        // Check if the player is within the pickup collider's bounds
-        return pickupCollider.bounds.Contains(playerTransform.position);
     }
 }
