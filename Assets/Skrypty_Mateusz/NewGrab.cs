@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NewGrab : MonoBehaviour
 {
+    public int snapNumber; 
+
     public Rigidbody2D rb;
 
     public CapsuleCollider2D capsuleCollider;
@@ -25,6 +27,8 @@ public class NewGrab : MonoBehaviour
 
     public SnappableObject snappedObject;
     public ScreensaverBounce bounce;
+    public SnapScore snapScore;
+    public WordScore wordScore;
 
 
     public void Start()
@@ -45,11 +49,14 @@ public class NewGrab : MonoBehaviour
             canGrab = true;
             playerTransform = collision.transform;
             playerMovement = playerTransform.GetComponent<Movement>();
+            
         }
         if (collision.CompareTag("Snap"))
         {
             // Try to assign the snappable object from the collision
             snappedObject = collision.GetComponent<SnappableObject>();
+            snapScore = collision.GetComponent<SnapScore>();
+            
 
         }
 
@@ -71,7 +78,8 @@ public class NewGrab : MonoBehaviour
         {
            
             snappedObject = null;
-
+            snapScore = null;
+            
         }
     }
 
@@ -97,13 +105,15 @@ public class NewGrab : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) && isGrabbed)
         {
+            
             bounce.speed = 2.5f;
             isGrabbed = false;
             transform.rotation = Quaternion.Euler(0f, 0f, randomZRotation);
             rb.freezeRotation = false;
             rb = null;
             Snap();
-            
+
+
         }
     }
 
@@ -114,7 +124,7 @@ public class NewGrab : MonoBehaviour
         {
             // Calculate the distance between the player and the object
             float distance = Vector2.Distance(playerTransform.position, transform.position);
-            Debug.Log(distance);
+            //Debug.Log(distance);
 
             // Check if the distance is greater than the followDistance (to avoid immediate snapping)
             if (distance > followDistance)
@@ -137,26 +147,29 @@ public class NewGrab : MonoBehaviour
     
     public void Snap()
     {
-        if(!isSnapped) 
+        if(!isSnapped && snappedObject.isSnapped == false) 
         {
-            
+            snappedObject.isSnapped = true;
             this.transform.position = snappedObject.snapTarget.position;
             this.transform.rotation = snappedObject.transform.rotation;
             isSnapped = true;
             bounce.speed = 0f;
             capsuleCollider.isTrigger = true;
-            rb.freezeRotation = true;
-            rb.bodyType = RigidbodyType2D.Static;
-           
+            
+            snapScore.CheckWordNumber(); 
+            
 
         }
         else if (isSnapped) 
         {
             capsuleCollider.isTrigger = false;
             isSnapped = false;
+            snappedObject.isSnapped = false;
+            
+            capsuleCollider.isTrigger = false;
             bounce.speed = 2.5f;
             rb.freezeRotation = false;
-            rb.bodyType= RigidbodyType2D.Dynamic;
+           rb.bodyType= RigidbodyType2D.Dynamic;
             
         }
       
