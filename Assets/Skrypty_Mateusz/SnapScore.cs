@@ -13,7 +13,7 @@ public class SnapScore : MonoBehaviour
    
     public void CheckWordNumber()
     {
-        Debug.Log("check score");
+        
 
        if (wordScore.wordNumber == snapNumber) 
         {

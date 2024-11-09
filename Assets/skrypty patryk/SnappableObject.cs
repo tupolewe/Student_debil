@@ -11,7 +11,7 @@ public class SnappableObject : MonoBehaviour
 
     public NewGrab newGrab;
 
-     
+    public bool isSnapped; 
 
     // No need to change this since snapping logic is handled in grabchuj
 
@@ -35,6 +35,7 @@ public class SnappableObject : MonoBehaviour
         {
             canSnap = false;
             newGrab = null;
+            isSnapped = false;
         }
     }
 

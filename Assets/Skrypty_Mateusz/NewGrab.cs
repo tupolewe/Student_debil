@@ -79,6 +79,7 @@ public class NewGrab : MonoBehaviour
            
             snappedObject = null;
             snapScore = null;
+            
         }
     }
 
@@ -104,13 +105,15 @@ public class NewGrab : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) && isGrabbed)
         {
+            
             bounce.speed = 2.5f;
             isGrabbed = false;
             transform.rotation = Quaternion.Euler(0f, 0f, randomZRotation);
             rb.freezeRotation = false;
             rb = null;
             Snap();
-            
+
+
         }
     }
 
@@ -144,17 +147,16 @@ public class NewGrab : MonoBehaviour
     
     public void Snap()
     {
-        if(!isSnapped) 
+        if(!isSnapped && snappedObject.isSnapped == false) 
         {
-            
+            snappedObject.isSnapped = true;
             this.transform.position = snappedObject.snapTarget.position;
             this.transform.rotation = snappedObject.transform.rotation;
-            snapScore.CheckWordNumber();
             isSnapped = true;
             bounce.speed = 0f;
             capsuleCollider.isTrigger = true;
-            rb.freezeRotation = true;
-            rb.bodyType = RigidbodyType2D.Static;
+            
+            snapScore.CheckWordNumber(); 
             
 
         }
@@ -162,9 +164,12 @@ public class NewGrab : MonoBehaviour
         {
             capsuleCollider.isTrigger = false;
             isSnapped = false;
+            snappedObject.isSnapped = false;
+            
+            capsuleCollider.isTrigger = false;
             bounce.speed = 2.5f;
             rb.freezeRotation = false;
-            rb.bodyType= RigidbodyType2D.Dynamic;
+           rb.bodyType= RigidbodyType2D.Dynamic;
             
         }
       
