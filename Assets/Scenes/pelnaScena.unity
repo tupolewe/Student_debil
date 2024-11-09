@@ -620,7 +620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Jest pan zaka\u0142\u0105 tej uczelni panie Debilowski"
+  m_text: Jest pan zakala tej uczelni panie Debilowski
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
   m_sharedMaterial: {fileID: 3425072066257239506, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
