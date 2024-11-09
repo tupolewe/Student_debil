@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7567513437615873965
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 968895549871566272, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: wordNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140965847635197357, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: questionNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545205894030565023, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: wordNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723987173282668369, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: wordNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810093850997049364, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_Name
+      value: Zad2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810093850997049364, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2090062
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.022404578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.056172058
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903247891136801062, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332338760625267720, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: wordScore
+      value: 
+      objectReference: {fileID: 2921653283922968828}
+    - target: {fileID: 8332338760625267720, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+--- !u!114 &2921653283922968828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4723987173282668369, guid: 18a8ed29fb162cb4cab453d9241cf6f6, type: 3}
+  m_PrefabInstance: {fileID: 7567513437615873965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce33ea55edca4b4887db72a2b1a57d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
