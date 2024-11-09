@@ -19,6 +19,10 @@ public class NewGrab : MonoBehaviour
     public float minRotation = 0f;
     public float maxRotation = 360f;
 
+    public bool isSnapped; 
+
+    public SnappableObject snappedObject;
+
 
     public void Start()
     {
@@ -78,6 +82,7 @@ public class NewGrab : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, randomZRotation);
             rb.freezeRotation = false;
             rb = null;
+            Snap();
             
         }
     }
@@ -105,4 +110,35 @@ public class NewGrab : MonoBehaviour
             }
         }
     }
+
+
+    void CheckForSnap()
+    {
+        // Find all snappable objects in the scene
+        SnappableObject[] snappableObjects = FindObjectsOfType<SnappableObject>();
+
+        foreach (SnappableObject snappable in snappableObjects)
+        {
+            float distance = Vector2.Distance(transform.position, snappable.snapTarget.position);
+            if (distance <= snappable.snapRange)
+            {
+                // Snap the object to the target position
+                transform.position = snappable.snapTarget.position;
+                Snap(); // Call Snap method to update the status
+                break;
+            }
+        }
+    }
+
+    // This will mark the object as snapped
+    public void Snap()
+    {
+       this.transform.position = snappedObject.snapTarget.position;
+    }
+
+    public void SnapCheck()
+    {
+
+    }
+    
 }
