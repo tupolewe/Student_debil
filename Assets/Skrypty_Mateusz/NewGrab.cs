@@ -155,7 +155,7 @@ public class NewGrab : MonoBehaviour
             isSnapped = true;
             bounce.speed = 0f;
             capsuleCollider.isTrigger = true;
-            
+            Debug.Log("SNAPWORDNUMBER");
             snapScore.CheckWordNumber(); 
             
 

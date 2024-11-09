@@ -8,7 +8,7 @@ public class SnapScore : MonoBehaviour
     public int snapNumber;
     public WordScore wordScore; 
 
-    public ScoringManager manager;
+    public ScoringManager scoringManager;
 
    
     public void CheckWordNumber()
@@ -17,11 +17,11 @@ public class SnapScore : MonoBehaviour
 
        if (wordScore.wordNumber == snapNumber) 
         {
-            manager.AddScore();
+            scoringManager.AddScore();
         }
        else
         {
-            manager.RemoveScore();
+            scoringManager.RemoveScore();
         }
     }
 
