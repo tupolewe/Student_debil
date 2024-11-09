@@ -14,9 +14,21 @@ public class NewGrab : MonoBehaviour
 
     public float followDistance;
 
-    public float speed; 
+    public float speed;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float minRotation = 0f;
+    public float maxRotation = 360f;
+
+
+    public void Start()
+    {
+        float randomZRotation = Random.Range(minRotation, maxRotation);
+
+        // Apply the random rotation to the object
+        transform.rotation = Quaternion.Euler(0f, 0f, randomZRotation);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the player entered the trigger
         if (collision.CompareTag("Player"))
@@ -27,7 +39,7 @@ public class NewGrab : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -47,7 +59,7 @@ public class NewGrab : MonoBehaviour
         FollowPlayer();
     }
 
-    private void Grab()
+    public void Grab()
     {
         if (Input.GetKeyDown(KeyCode.Space) && canGrab && !isGrabbed)
         {
@@ -65,16 +77,27 @@ public class NewGrab : MonoBehaviour
         }
     }
 
-    private void FollowPlayer()
+    public void FollowPlayer()
     {
-
-        
         // Only execute if the object is grabbed and references are assigned
         if (isGrabbed && playerTransform != null && playerMovement != null)
         {
-            // Calculate the target position based on player's position and movement
-            Vector2 targetPosition = (Vector2)playerTransform.position - playerMovement.movement.normalized * followDistance;
-            transform.position = Vector2.Lerp(transform.position, targetPosition, playerMovement.moveSpeed * Time.deltaTime * speed);
+            // Calculate the distance between the player and the object
+            float distance = Vector2.Distance(playerTransform.position, transform.position);
+            Debug.Log(distance);
+
+            // Check if the distance is greater than the followDistance (to avoid immediate snapping)
+            if (distance > followDistance)
+            {
+                // Calculate the direction from the object to the player
+                Vector2 directionToPlayer = (playerTransform.position - transform.position).normalized;
+
+                // Move the object towards the player, based on the distance and movement speed
+                Vector2 targetPosition = (Vector2)playerTransform.position - directionToPlayer * followDistance;
+
+                // Smoothly move the object towards the target position
+                transform.position = Vector2.Lerp(transform.position, targetPosition, playerMovement.moveSpeed * Time.deltaTime * speed);
+            }
         }
     }
 }
