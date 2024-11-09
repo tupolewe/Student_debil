@@ -61,16 +61,21 @@ public class NewGrab : MonoBehaviour
 
     public void Grab()
     {
+
+        float randomZRotation = Random.Range(minRotation, maxRotation);
+
         if (Input.GetKeyDown(KeyCode.Space) && canGrab && !isGrabbed)
         {
             isGrabbed = true;
             rb = GetComponent<Rigidbody2D>();
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             rb.freezeRotation = true;
             
         }
         else if (Input.GetKeyDown(KeyCode.Space) && isGrabbed)
         {
             isGrabbed = false;
+            transform.rotation = Quaternion.Euler(0f, 0f, randomZRotation);
             rb.freezeRotation = false;
             rb = null;
             

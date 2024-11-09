@@ -806,7 +806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'next? '
+  m_text: You
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
   m_sharedMaterial: {fileID: 3425072066257239506, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'next? '
+  m_text: are
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
   m_sharedMaterial: {fileID: 3425072066257239506, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
