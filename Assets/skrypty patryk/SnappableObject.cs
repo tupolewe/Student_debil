@@ -38,8 +38,5 @@ public class SnappableObject : MonoBehaviour
         }
     }
 
-    public void Snap()
-    {
-        
-    }
+   
 }

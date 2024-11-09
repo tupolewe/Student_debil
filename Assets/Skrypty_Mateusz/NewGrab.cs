@@ -6,6 +6,8 @@ public class NewGrab : MonoBehaviour
 {
     public Rigidbody2D rb;
 
+    public CapsuleCollider2D capsuleCollider;
+
     public bool canGrab;
     public bool isGrabbed;
 
@@ -22,10 +24,13 @@ public class NewGrab : MonoBehaviour
     public bool isSnapped; 
 
     public SnappableObject snappedObject;
+    public ScreensaverBounce bounce;
 
 
     public void Start()
     {
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        bounce = GetComponent<ScreensaverBounce>();
         float randomZRotation = Random.Range(minRotation, maxRotation);
 
         // Apply the random rotation to the object
@@ -41,6 +46,13 @@ public class NewGrab : MonoBehaviour
             playerTransform = collision.transform;
             playerMovement = playerTransform.GetComponent<Movement>();
         }
+        if (collision.CompareTag("Snap"))
+        {
+            // Try to assign the snappable object from the collision
+            snappedObject = collision.GetComponent<SnappableObject>();
+
+        }
+
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -54,6 +66,12 @@ public class NewGrab : MonoBehaviour
                 playerTransform = null;
                 playerMovement = null;
             }
+        }
+        if (collision.CompareTag("Snap"))
+        {
+           
+            snappedObject = null;
+
         }
     }
 
@@ -74,10 +92,12 @@ public class NewGrab : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             rb.freezeRotation = true;
+            bounce.speed = 0f;
             
         }
         else if (Input.GetKeyDown(KeyCode.Space) && isGrabbed)
         {
+            bounce.speed = 2.5f;
             isGrabbed = false;
             transform.rotation = Quaternion.Euler(0f, 0f, randomZRotation);
             rb.freezeRotation = false;
@@ -112,33 +132,36 @@ public class NewGrab : MonoBehaviour
     }
 
 
-    void CheckForSnap()
-    {
-        // Find all snappable objects in the scene
-        SnappableObject[] snappableObjects = FindObjectsOfType<SnappableObject>();
+ 
 
-        foreach (SnappableObject snappable in snappableObjects)
-        {
-            float distance = Vector2.Distance(transform.position, snappable.snapTarget.position);
-            if (distance <= snappable.snapRange)
-            {
-                // Snap the object to the target position
-                transform.position = snappable.snapTarget.position;
-                Snap(); // Call Snap method to update the status
-                break;
-            }
-        }
-    }
-
-    // This will mark the object as snapped
+    
     public void Snap()
     {
-       this.transform.position = snappedObject.snapTarget.position;
+        if(!isSnapped) 
+        {
+            
+            this.transform.position = snappedObject.snapTarget.position;
+            this.transform.rotation = snappedObject.transform.rotation;
+            isSnapped = true;
+            bounce.speed = 0f;
+            capsuleCollider.isTrigger = true;
+            rb.freezeRotation = true;
+            rb.bodyType = RigidbodyType2D.Static;
+           
+
+        }
+        else if (isSnapped) 
+        {
+            capsuleCollider.isTrigger = false;
+            isSnapped = false;
+            bounce.speed = 2.5f;
+            rb.freezeRotation = false;
+            rb.bodyType= RigidbodyType2D.Dynamic;
+            
+        }
+      
     }
 
-    public void SnapCheck()
-    {
-
-    }
+  
     
 }
