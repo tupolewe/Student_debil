@@ -5,7 +5,7 @@ public class RandomNumberGenerator : MonoBehaviour
 {
     public List<GameObject> gameObjects; // Assign GameObjects in the Inspector
     public List<int> availableNumbers = new List<int>();
-    public int maxNumber = 10;
+    public int maxNumber = 7;
 
     public int questionNumber; 
 
@@ -72,15 +72,7 @@ public class RandomNumberGenerator : MonoBehaviour
             case 7:
                 ActivateGameObject(7);
                 break;
-            case 8:
-                ActivateGameObject(8);
-                break;
-            case 9:
-                ActivateGameObject(9);
-                break;
-            case 10:
-                ActivateGameObject(10);
-                break;
+            
             default:
                 Debug.Log("Number out of range");
                 break;
@@ -107,9 +99,9 @@ public class RandomNumberGenerator : MonoBehaviour
     // Call this function whenever you want to generate a new random number
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Press Space to generate a new number
+        if (Input.GetKeyDown(KeyCode.P)) // Press Space to generate a new number
         {
-            //GenerateRandomNumber();
+            GenerateRandomNumber();
         }
     }
 }
