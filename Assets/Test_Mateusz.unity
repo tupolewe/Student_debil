@@ -299,6 +299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapNumber: 1
+  wordScore: {fileID: 0}
+  scoreManager: {fileID: 0}
 --- !u!1 &173101692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapNumber: 2
+  wordScore: {fileID: 0}
+  scoreManager: {fileID: 0}
 --- !u!1 &879791102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +1794,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1687207462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463234162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4709672759877922111, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
+  m_PrefabInstance: {fileID: 2935287936202255756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463234169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463234162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867d21c246b558b47b634e1b9854b94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &1504305815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,6 +2324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapNumber: 3
+  wordScore: {fileID: 0}
+  scoreManager: {fileID: 0}
 --- !u!1 &1820962516
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,7 +3078,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4709672759877922111, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1463234169}
   m_SourcePrefab: {fileID: 100100000, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
 --- !u!1001 &9194587724478416829
 PrefabInstance:

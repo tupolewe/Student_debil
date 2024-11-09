@@ -8,31 +8,27 @@ public class SnapScore : MonoBehaviour
     public int snapNumber;
     public WordScore wordScore; 
 
+    public ScoreManager scoreManager;
+
    
     public void CheckWordNumber()
     {
+        Debug.Log("check score");
+
        if (wordScore.wordNumber == snapNumber) 
         {
-            Debug.Log("score is correct");
+            scoreManager.AddScore();
         }
        else
         {
-            Debug.Log("score is incorrect");
+            scoreManager.RemoveScore();
         }
     }
 
 
 
 
-    public void AddScore()
-    {
-
-    }
-
-    public void SubScore()
-    {
-
-    }
+   
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
