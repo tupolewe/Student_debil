@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomNumberGenerator : MonoBehaviour
+public class RandomQuestion : MonoBehaviour
 {
     public List<GameObject> gameObjects; // Assign GameObjects in the Inspector
     public List<int> availableNumbers = new List<int>();
@@ -9,13 +9,15 @@ public class RandomNumberGenerator : MonoBehaviour
 
     public int questionNumber; 
 
-    void Start()
+    public DialogueManager dialogueManager;
+
+    public void Start()
     {
         InitializeNumbers();
         //GenerateRandomNumber();
     }
 
-    void InitializeNumbers()
+    public void InitializeNumbers()
     {
         // Populate the list with numbers from 1 to maxNumber
         availableNumbers.Clear();
@@ -25,7 +27,7 @@ public class RandomNumberGenerator : MonoBehaviour
         }
     }
 
-    void GenerateRandomNumber()
+    public void GenerateRandomNumber()
     {
         // If no numbers are left, reset the list
         if (availableNumbers.Count == 0)
@@ -47,30 +49,37 @@ public class RandomNumberGenerator : MonoBehaviour
         SelectGameObject(randomNumber);
     }
 
-    void SelectGameObject(int number)
+    public void SelectGameObject(int number)
     {
         switch (number)
         {
             case 1:
                 ActivateGameObject(1);
+                
                 break;
             case 2:
                 ActivateGameObject(2);
+                
                 break;
             case 3:
                 ActivateGameObject(3);
+                
                 break;
             case 4:
                 ActivateGameObject(4);
+                
                 break;
             case 5:
                 ActivateGameObject(5);
+                
                 break;
             case 6:
                 ActivateGameObject(6);
+                    
                 break;
             case 7:
                 ActivateGameObject(7);
+               
                 break;
             
             default:
@@ -79,7 +88,7 @@ public class RandomNumberGenerator : MonoBehaviour
         }
     }
 
-    void ActivateGameObject(int index)
+    public void ActivateGameObject(int index)
     {
         if (index - 1 < gameObjects.Count)
         {
@@ -97,7 +106,7 @@ public class RandomNumberGenerator : MonoBehaviour
     }
 
     // Call this function whenever you want to generate a new random number
-    void Update()
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) // Press Space to generate a new number
         {

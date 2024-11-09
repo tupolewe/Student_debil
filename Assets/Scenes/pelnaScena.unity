@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 88757247}
+  - component: {fileID: 88757248}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -154,6 +155,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88757248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88757246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e89320e4f732343bb983b429ac8096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTextUI1: {fileID: 332569101}
+  dialogueBox1: {fileID: 1503237331}
+  dialogueTextUI2: {fileID: 1863488109}
+  dialogueBox2: {fileID: 849646922}
+  dialogueLines:
+  - characterName: 
+    dialogueText: 'Witam pana ponownie na egzaminie komisyjnym '
+    characterID: 0
+  - characterName: 
+    dialogueText: D-dzien dobry panie profesorze doktorze rehabilitowany
+    characterID: 1
+  - characterName: 
+    dialogueText: 'Zasady pan zna, egzamin polega na odpowiedzeniu na 5 pytan '
+    characterID: 0
+  - characterName: 
+    dialogueText: Jezeli odpowie pan prawidlowo na 3 pytania...
+    characterID: 0
+  - characterName: 
+    dialogueText: 'To zaliczy Pan egzamin '
+    characterID: 0
+  - characterName: 
+    dialogueText: 'Dobrze zaczynajmy, pytanie pierwsze '
+    characterID: 0
+  - characterName: 
+    dialogueText: 'Jaki szkolny przedmiot najmniej przydaje sie w zyciu '
+    characterID: 0
+  - characterName: 
+    dialogueText: Wiecej niz jedno zwierze to?
+    characterID: 0
+  - characterName: 
+    dialogueText: Z czego powstaja rodzynki?
+    characterID: 0
+  - characterName: 
+    dialogueText: Ile koncow ma 3 i pol kija?
+    characterID: 0
+  - characterName: 
+    dialogueText: Czyja smierc spowodowala wybuch I wojny swiatowej?
+    characterID: 0
+  - characterName: 
+    dialogueText: Czym jest szczupak?
+    characterID: 0
+  - characterName: 
+    dialogueText: Uloz gazowe olbrzymy ukladu slonecznego w kolejnosci od Slonca
+    characterID: 0
+  currentLineIndex: 0
+  sequentialQuestion: {fileID: 687222996}
+  inGameplay: 0
 --- !u!1 &93100376
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +635,7 @@ GameObject:
   - component: {fileID: 332569102}
   - component: {fileID: 332569101}
   m_Layer: 0
-  m_Name: TEXT
+  m_Name: DziekanText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,7 +657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.54, y: -0.9}
+  m_AnchoredPosition: {x: 3.373, y: -1.009}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &332569101
@@ -620,7 +680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jest pan zakala tej uczelni panie Debilowski
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
   m_sharedMaterial: {fileID: 3425072066257239506, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
@@ -647,8 +707,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 2.7
+  m_fontSizeBase: 2.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1136,7 +1196,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: 86582760f3e333d408ee9347bbe7e9b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1284,16 +1344,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ae10906c774031448dedf695c42fb97, type: 3}
---- !u!1 &613385522 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1248901348258277141, guid: 4ae10906c774031448dedf695c42fb97, type: 3}
-  m_PrefabInstance: {fileID: 613385521}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &613385523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8195106807750186191, guid: 4ae10906c774031448dedf695c42fb97, type: 3}
   m_PrefabInstance: {fileID: 613385521}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &687222995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687222997}
+  - component: {fileID: 687222996}
+  m_Layer: 0
+  m_Name: Questions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &687222996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687222995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75efef623cb5aa749a5c8aa41a4dc9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjects:
+  - {fileID: 311599450}
+  - {fileID: 419710602}
+  - {fileID: 473186229}
+  - {fileID: 742973510}
+  - {fileID: 365239937}
+  maxNumber: 5
+  dialogueManager: {fileID: 0}
+--- !u!4 &687222997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687222995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14997795, y: -0.4376313, z: 0.006933056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &742973508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1545,8 +1652,8 @@ Transform:
   m_GameObject: {fileID: 849646922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.15, y: 2.55, z: 0}
-  m_LocalScale: {x: 1.8216864, y: 1.8216864, z: 1.8216864}
+  m_LocalPosition: {x: -0.9, y: 2.55, z: 0}
+  m_LocalScale: {x: 1.9735376, y: 1.9022049, z: 1.9022049}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1863488108}
@@ -1721,7 +1828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1019887827
 Transform:
   m_ObjectHideFlags: 0
@@ -1828,7 +1935,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 059a2adb2af9ab547b0463ed9a26251a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2075,91 +2182,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1142806841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.095}
---- !u!1001 &1336806180
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1624678464012441732, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_Name
-      value: Question Generator
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.09997743
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.04052278
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.03179291
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318063919146225768, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7964977349315680671, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: gameObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 311599450}
-    - target: {fileID: 7964977349315680671, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: gameObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 419710602}
-    - target: {fileID: 7964977349315680671, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: gameObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 473186229}
-    - target: {fileID: 7964977349315680671, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: gameObjects.Array.data[3]
-      value: 
-      objectReference: {fileID: 742973510}
-    - target: {fileID: 7964977349315680671, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: gameObjects.Array.data[4]
-      value: 
-      objectReference: {fileID: 365239937}
-    - target: {fileID: 7964977349315680671, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: gameObjects.Array.data[5]
-      value: 
-      objectReference: {fileID: 2001624948}
-    - target: {fileID: 7964977349315680671, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
-      propertyPath: gameObjects.Array.data[6]
-      value: 
-      objectReference: {fileID: 613385522}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f4e7fc9ebe02b6f4c94677a624fb9342, type: 3}
 --- !u!1 &1410513238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,7 +2338,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.99, y: -3.37, z: 0}
-  m_LocalScale: {x: 1.5648917, y: 1.5648917, z: 1.5648917}
+  m_LocalScale: {x: 1.9159946, y: 1.869263, z: 1.869263}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 332569100}
@@ -2678,7 +2700,7 @@ GameObject:
   - component: {fileID: 1863488110}
   - component: {fileID: 1863488109}
   m_Layer: 0
-  m_Name: TEXT
+  m_Name: StudentText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2700,7 +2722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.46, y: -0.11}
+  m_AnchoredPosition: {x: -0.426, y: -0.11}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863488109
@@ -2723,7 +2745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JEbac dziekana
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
   m_sharedMaterial: {fileID: 3425072066257239506, guid: b76c452d98f87ec4ca974a9d6f919371, type: 2}
@@ -2750,8 +2772,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 2.7
+  m_fontSizeBase: 2.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3255,11 +3277,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3645149477204955944, guid: 3284fa0241a6a464da33eb29441c8828, type: 3}
   m_PrefabInstance: {fileID: 2001624946}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2001624948 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5942516419565822194, guid: 3284fa0241a6a464da33eb29441c8828, type: 3}
-  m_PrefabInstance: {fileID: 2001624946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2007925349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4907599934203847266, guid: 4f48d817f8972614aa86b46c5d4a4d88, type: 3}
@@ -3349,9 +3366,9 @@ SceneRoots:
   - {fileID: 1033733989}
   - {fileID: 1926888905}
   - {fileID: 1019887827}
-  - {fileID: 1926917317}
-  - {fileID: 1336806180}
-  - {fileID: 88757247}
   - {fileID: 1503237333}
   - {fileID: 849646924}
   - {fileID: 2045148402}
+  - {fileID: 88757247}
+  - {fileID: 1926917317}
+  - {fileID: 687222997}
