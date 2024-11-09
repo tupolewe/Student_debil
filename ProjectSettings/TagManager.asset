@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Word
+  - GrabbedObject
   layers:
   - Default
   - TransparentFX
