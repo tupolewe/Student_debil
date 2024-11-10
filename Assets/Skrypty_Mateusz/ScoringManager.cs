@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoringManager : MonoBehaviour
 {
+
+
+    public float currentTime = 5f;
     public int maxScore;
     public int score;
 
@@ -15,8 +19,12 @@ public class ScoringManager : MonoBehaviour
     public bool fourthQuestion;
     public bool fifthQuestion;
 
-    public bool playerWon;
+    public float countdownTime = 5f;  // Set the countdown time (in seconds)
+    
 
+    public bool playerWon;
+    public bool end;
+    private bool hasLoaded = false;
     public void AddScore()
     {
         score = score + 1;
@@ -107,11 +115,38 @@ public class ScoringManager : MonoBehaviour
     {
         if (correctQuestions >= 3)
         {
-            playerWon = true;
+            SceneManager.LoadSceneAsync(2);
+            end =true;
         }
         else
         {
-            playerWon = false;
+            SceneManager.LoadSceneAsync(3);
+            end =true;
         }
+    }
+
+    void Update()
+    {
+        MenuTimer();
+    }
+    
+    public void MenuTimer()
+    {
+
+        if (end && !hasLoaded)
+        {
+            // Decrease the time
+            if (currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
+                Debug.Log("Time remaining: " + Mathf.Ceil(currentTime));  // Log time to console
+            }
+            else
+            {
+                SceneManager.LoadSceneAsync(0);
+                hasLoaded = true;
+            }
+        }
+            
     }
 }

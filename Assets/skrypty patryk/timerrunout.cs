@@ -5,7 +5,9 @@ using UnityEngine;
 public class timerrunout: MonoBehaviour
 {
 
-
+    public AudioSource src;
+    public AudioClip calm;
+    public AudioClip battle; 
 
     // Timer variable
     public float timer; // Time in seconds (you can adjust this in the Inspector)
@@ -36,14 +38,20 @@ public class timerrunout: MonoBehaviour
     }
 
     // Coroutine that handles the countdown
-    private IEnumerator TimerCountdown()
+    public IEnumerator TimerCountdown()
     {
+        src.clip = battle;
+        src.Play();
         // While the timer is greater than 0, keep counting down
         while (timer > 0)
         {
             timer -= Time.deltaTime;  // Decrease the timer each frame
             yield return null;        // Wait until the next frame
         }
+       
+
+        src.clip = calm;
+        src.Play();
 
         // When the timer reaches 0, perform the actions
         PerformActionsAtTimerZero();
