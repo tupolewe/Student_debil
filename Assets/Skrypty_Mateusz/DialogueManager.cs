@@ -28,9 +28,16 @@ public class DialogueManager : MonoBehaviour
 
     public bool inGameplay; 
 
+    public gameplayscenehandler gameplaysceneHandler;
+    public timerrunout timerrunOut;
+
+    public Animator animator; 
+
     public void Start()
     {
         inGameplay = false;
+
+        
 
         if (dialogueLines.Count > 0)
         {
@@ -113,7 +120,9 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("losowanie questa");
             sequentialQuestion.GenerateNextNumber();
             inGameplay = true;
-
+            animator.SetInteger("kurwy", 1); 
+            
+            
         }
     }
 

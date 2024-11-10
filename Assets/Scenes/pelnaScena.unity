@@ -214,6 +214,9 @@ MonoBehaviour:
   currentLineIndex: 0
   sequentialQuestion: {fileID: 687222996}
   inGameplay: 0
+  gameplaysceneHandler: {fileID: 0}
+  timerrunOut: {fileID: 0}
+  animator: {fileID: 1033733987}
 --- !u!1 &93100376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1662,56 @@ Transform:
   - {fileID: 1863488108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &876814833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 876814835}
+  - component: {fileID: 876814834}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &876814834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876814833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcef07ab9572264a8dc20da9dd9bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 10
+  objectToDeactivate: {fileID: 1019887826}
+  objectToActivate1: {fileID: 1033733986}
+  objectToActivate2: {fileID: 1926888902}
+  triggerObject: {fileID: 1019887826}
+  animator: {fileID: 1033733987}
+--- !u!4 &876814835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876814833}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14997795, y: -0.4376313, z: 0.006933056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901099745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1019887827
 Transform:
   m_ObjectHideFlags: 0
@@ -1867,6 +1920,7 @@ GameObject:
   - component: {fileID: 1033733987}
   - component: {fileID: 1033733990}
   - component: {fileID: 1033733991}
+  - component: {fileID: 1033733992}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1988,6 +2042,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondGameObject: {fileID: 1926888902}
+--- !u!114 &1033733992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033733986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd548e6a47ea56f4ea78129d70b45681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToActivate: {fileID: 1019887826}
+  objectToDeactivate1: {fileID: 1033733986}
+  objectToDeactivate2: {fileID: 1926888902}
 --- !u!1 &1139869424
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,3 +3441,4 @@ SceneRoots:
   - {fileID: 88757247}
   - {fileID: 1926917317}
   - {fileID: 687222997}
+  - {fileID: 876814835}
