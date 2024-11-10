@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
 
 public class SequentialQuestion : MonoBehaviour
@@ -8,6 +9,12 @@ public class SequentialQuestion : MonoBehaviour
     private int currentNumber = 1; // Start from 1
 
     public DialogueManager dialogueManager;
+
+    public GameObject Zad1;
+    public GameObject Zad2;
+    public GameObject Zad3;
+    public GameObject Zad4;
+    public GameObject Zad5;
 
     public void Start()
     {
@@ -37,15 +44,19 @@ public class SequentialQuestion : MonoBehaviour
                 break;
             case 2:
                 ActivateGameObject(2);
+                Zad1.gameObject.SetActive(false);
                 break;
             case 3:
                 ActivateGameObject(3);
+                Zad2.gameObject.SetActive(false);
                 break;
             case 4:
                 ActivateGameObject(4);
+                Zad3.gameObject.SetActive(false);
                 break;
             case 5:
                 ActivateGameObject(5);
+                Zad4.gameObject.SetActive(false);
                 break;
             default:
                 Debug.Log("Number out of range");

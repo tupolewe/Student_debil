@@ -33,6 +33,10 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator; 
 
+    public QuestionManager questionManager;
+
+    public ScoringManager manager;
+
     public void Start()
     {
         inGameplay = false;
@@ -117,13 +121,65 @@ public class DialogueManager : MonoBehaviour
 
         if (currentLineIndex == 6)
         {
-            Debug.Log("losowanie questa");
-            sequentialQuestion.GenerateNextNumber();
-            inGameplay = true;
-            animator.SetInteger("kurwy", 1); 
+            AnimationRun();
             
-            
+
         }
+
+        if (currentLineIndex == 7)
+        {
+            manager.FirstQuestion();
+        }
+
+        if (currentLineIndex == 8)
+        {
+            AnimationRun();
+        }
+
+        if (currentLineIndex == 9)
+        {
+            manager.SecondQuestion();
+        }
+
+        if(currentLineIndex == 10)
+        {
+            AnimationRun();
+        }
+
+        if (currentLineIndex == 11)
+        {
+            manager.ThirdQuestion();
+        }
+
+        if (currentLineIndex == 12)
+        {
+            AnimationRun();
+        }
+
+        if (currentLineIndex == 13)
+        {
+            manager.FourthQuestion();
+        }
+
+        if (currentLineIndex == 14)
+        {
+            AnimationRun();
+        }
+
+        if (currentLineIndex == 15)
+        {
+            manager.FifthQuestion();
+        }
+
+        if (currentLineIndex == 16)
+        {
+
+            manager.WinCondition();
+
+        }
+
+
+
     }
 
     public void EndDialogue()
@@ -139,7 +195,18 @@ public class DialogueManager : MonoBehaviour
         {
             sequentialQuestion.GenerateNextNumber();
         }
+        else if (currentLineIndex == 8) 
+        {
+            sequentialQuestion.GenerateNextNumber();
+        }
        
+    }
+
+    public void AnimationRun()
+    {
+        sequentialQuestion.GenerateNextNumber();
+        inGameplay = true;
+        animator.SetInteger("kurwy", 1);
     }
 
 }

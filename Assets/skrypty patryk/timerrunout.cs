@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class timerrunout: MonoBehaviour
 {
+
+
+
     // Timer variable
-    public float timer = 5f; // Time in seconds (you can adjust this in the Inspector)
+    public float timer; // Time in seconds (you can adjust this in the Inspector)
 
     // References to the GameObjects
     public GameObject objectToDeactivate;    // GameObject to deactivate
@@ -15,6 +18,9 @@ public class timerrunout: MonoBehaviour
 
     // Animator to play animation
     public Animator animator;
+
+    public ReactionDialogue reactionDialogue; 
+    public ScoringManager scoringManager;
 
     private bool timerStarted = false;       // To check if the timer has started
 
@@ -41,6 +47,10 @@ public class timerrunout: MonoBehaviour
 
         // When the timer reaches 0, perform the actions
         PerformActionsAtTimerZero();
+        reactionDialogue.Reaction();
+        timerStarted = false;
+        timer = 25f;
+
     }
 
     // Function to perform actions when the timer reaches 0
