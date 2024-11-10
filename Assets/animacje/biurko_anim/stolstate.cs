@@ -24,4 +24,12 @@ public class stolstate: MonoBehaviour
             secondAnimator.SetInteger("animationTrigger", 1);
         }
     }
+    public void TriggerThirdAnimation()
+    {
+        if (secondAnimator != null)
+        {
+            // Set the int parameter to a value greater than 0 to trigger the second animation
+            secondAnimator.SetInteger("animationTrigger", 2);
+        }
+    }
 }
