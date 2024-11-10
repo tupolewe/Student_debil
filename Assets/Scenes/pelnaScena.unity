@@ -1422,7 +1422,7 @@ MonoBehaviour:
   - {fileID: 393663220}
   - {fileID: 419710602}
   maxNumber: 5
-  dialogueManager: {fileID: 0}
+  dialogueManager: {fileID: 88757248}
   Zad1: {fileID: 311599450}
   Zad2: {fileID: 473186229}
   Zad3: {fileID: 365239937}
@@ -3222,6 +3222,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4907599934203847266, guid: 4f48d817f8972614aa86b46c5d4a4d88, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 819548822}
+    - target: {fileID: 4907599934203847266, guid: 4f48d817f8972614aa86b46c5d4a4d88, type: 3}
+      propertyPath: timerRunOut
+      value: 
+      objectReference: {fileID: 876814834}
+    - target: {fileID: 4907599934203847266, guid: 4f48d817f8972614aa86b46c5d4a4d88, type: 3}
+      propertyPath: scoringManager
+      value: 
+      objectReference: {fileID: 2007925349}
+    - target: {fileID: 4907599934203847266, guid: 4f48d817f8972614aa86b46c5d4a4d88, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 88757248}
+    - target: {fileID: 4907599934203847266, guid: 4f48d817f8972614aa86b46c5d4a4d88, type: 3}
+      propertyPath: sequentialQuestion
+      value: 
+      objectReference: {fileID: 687222996}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
