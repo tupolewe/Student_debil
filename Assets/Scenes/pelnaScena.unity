@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88757247}
   - component: {fileID: 88757248}
+  - component: {fileID: 88757249}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -194,22 +195,31 @@ MonoBehaviour:
     dialogueText: 'Jaki szkolny przedmiot najmniej przydaje sie w zyciu '
     characterID: 0
   - characterName: 
-    dialogueText: Wiecej niz jedno zwierze to?
+    dialogueText: Nastepne pytanie
     characterID: 0
   - characterName: 
     dialogueText: Z czego powstaja rodzynki?
     characterID: 0
   - characterName: 
-    dialogueText: Ile koncow ma 3 i pol kija?
+    dialogueText: 'Nastepne pytanie '
     characterID: 0
   - characterName: 
     dialogueText: Czyja smierc spowodowala wybuch I wojny swiatowej?
     characterID: 0
   - characterName: 
+    dialogueText: Kolejne pytanie, jedno z moich ulubionych
+    characterID: 0
+  - characterName: 
     dialogueText: Czym jest szczupak?
     characterID: 0
   - characterName: 
-    dialogueText: Uloz gazowe olbrzymy ukladu slonecznego w kolejnosci od Slonca
+    dialogueText: 'I ostatnie pytanie '
+    characterID: 0
+  - characterName: 
+    dialogueText: Wiecej niz jedno zwierze to?
+    characterID: 0
+  - characterName: 
+    dialogueText: 'To by bylo na tyle, zobaczymy czy pan zdal '
     characterID: 0
   currentLineIndex: 0
   sequentialQuestion: {fileID: 687222996}
@@ -217,6 +227,25 @@ MonoBehaviour:
   gameplaysceneHandler: {fileID: 0}
   timerrunOut: {fileID: 0}
   animator: {fileID: 1033733987}
+  questionManager: {fileID: 0}
+  manager: {fileID: 2007925349}
+--- !u!114 &88757249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88757246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbab120712328b84da3b2938b6b8992b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoringManager: {fileID: 2007925349}
+  timerRunOut: {fileID: 876814834}
+  dialogueManager: {fileID: 88757248}
+  sequentialQuestion: {fileID: 687222996}
+  animator: {fileID: 819548822}
 --- !u!1 &93100376
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +925,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4434475519076226385, guid: e2ec52307746fd4479feed94f7b45858, type: 3}
   m_PrefabInstance: {fileID: 365239935}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &393663220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5942516419565822194, guid: 3284fa0241a6a464da33eb29441c8828, type: 3}
+  m_PrefabInstance: {fileID: 2001624946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &419710600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1383,12 +1417,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjects:
   - {fileID: 311599450}
-  - {fileID: 419710602}
   - {fileID: 473186229}
-  - {fileID: 742973510}
   - {fileID: 365239937}
+  - {fileID: 393663220}
+  - {fileID: 419710602}
   maxNumber: 5
   dialogueManager: {fileID: 0}
+  Zad1: {fileID: 311599450}
+  Zad2: {fileID: 473186229}
+  Zad3: {fileID: 365239937}
+  Zad4: {fileID: 393663220}
+  Zad5: {fileID: 419710602}
 --- !u!4 &687222997
 Transform:
   m_ObjectHideFlags: 0
@@ -1562,11 +1601,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2889045379518159112, guid: 5c2b37c33595f064babe75d5206c5786, type: 3}
   m_PrefabInstance: {fileID: 742973508}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &742973510 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5258463182209215186, guid: 5c2b37c33595f064babe75d5206c5786, type: 3}
-  m_PrefabInstance: {fileID: 742973508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &765345547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7442189073825654806, guid: a8f9b42038e07124b87306bc5ff97644, type: 3}
@@ -1576,6 +1610,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4709672759877922111, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
   m_PrefabInstance: {fileID: 1578435827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &819548822 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2687864910264991642, guid: dcbffe31a80bcf64980edb96cbf871d7, type: 3}
+  m_PrefabInstance: {fileID: 1726566718}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &849646922
 GameObject:
@@ -1691,12 +1730,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcef07ab9572264a8dc20da9dd9bbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 10
+  timer: 25
   objectToDeactivate: {fileID: 1019887826}
   objectToActivate1: {fileID: 1033733986}
   objectToActivate2: {fileID: 1926888902}
   triggerObject: {fileID: 1019887826}
   animator: {fileID: 1033733987}
+  reactionDialogue: {fileID: 88757249}
+  scoringManager: {fileID: 2007925349}
 --- !u!4 &876814835
 Transform:
   m_ObjectHideFlags: 0
@@ -2595,6 +2636,14 @@ PrefabInstance:
     - target: {fileID: 4709672759877922111, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565568930792092488, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
+      propertyPath: inBattle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565568930792092488, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
+      propertyPath: moveSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6757811579423582379, guid: 6a4646a494cdb7c4783da9186c8e276a, type: 3}
       propertyPath: m_LocalScale.x

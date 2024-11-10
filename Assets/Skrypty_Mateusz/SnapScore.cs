@@ -21,7 +21,7 @@ public class SnapScore : MonoBehaviour
         }
        else
         {
-            scoringManager.RemoveScore();
+            //scoringManager.RemoveScore();
         }
     }
 
