@@ -15,5 +15,9 @@ public class sprimehider : MonoBehaviour
     {
         spriteRenderer.enabled = false;  // Hide the sprite
     }
+    public void ShowSprite()
+    {
+        spriteRenderer.enabled = true;  //show the sprite
+    }
 }
 
